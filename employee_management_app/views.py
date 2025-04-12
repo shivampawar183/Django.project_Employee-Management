@@ -8,12 +8,20 @@ from django.contrib.auth import logout
 # Create your views here.
 def start(request):
     if request.method=='GET':
-        return redirect('/accounts/login')
+        if request.user.is_authenticated:
+            return redirect('/home/')
+        else:
+            return redirect('/accounts/login')
+
 
 @login_required
 def home(request):
     #return HttpResponse("<h1>Hello all</h1>")
     return render (request, "home.html", {})
+
+
+def change_password(request):
+    return render(request, 'change_password.html', {})
 
 
 def logout_view(request):
