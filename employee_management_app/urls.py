@@ -7,6 +7,7 @@ from .forms import LoginForm
 
 
 urlpatterns = [
+    path('', start)
     path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html', authentication_form=LoginForm)),
     path('logout/', logout_view),
     path('home/',home),
