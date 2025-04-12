@@ -6,6 +6,10 @@ from django.contrib.auth import logout
 
 
 # Create your views here.
+def start(request):
+    if request.method=='GET':
+        return redirect('/accounts/login')
+
 @login_required
 def home(request):
     #return HttpResponse("<h1>Hello all</h1>")
