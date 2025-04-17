@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import *
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from .forms import LoginForm
 
@@ -15,4 +17,4 @@ urlpatterns = [
     path('emp-detail/<int:id>', emp_detail),
     path('emp-update/<int:id>', emp_update),
     path('do-emp-update/<int:id>', do_emp_update)
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
